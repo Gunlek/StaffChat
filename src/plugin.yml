@@ -1,0 +1,28 @@
+name: StaffChat
+version: 1.0
+author: Gunlek
+website: http://simple-duino.com
+main: com.simpleduino.staffchat.StaffChatPlugin
+permissions:
+  StaffChat.AdminStaff.Messenger:
+    description: Autorise le joueur à envoyer/recevoir des messages inter-serveurs administrateurs
+    defaut: false
+  StaffChat.ModoStaff.Messenger:
+    description: Autorise le joueur à envoyer/recevoir des messages inter-serveurs modérateurs
+    defaut: false
+  StaffChat.HelperStaff.Messenger:
+    description: Autorise le joueur à envoyer/recevoir des messages inter-serveurs assistants
+    defaut: false
+commands:
+  chatadmin:
+    description: Envoie un message inter-serveur aux administrateurs du serveur
+    aliases: [chatadmin, ca]
+    permission: StaffChat.AdminStaff.Messenger
+  chathelper:
+    description: Envoie un message inter-serveur aux assistants du serveur
+    aliases: [chathelper, ch]
+    permission: StaffChat.HelperStaff.Messenger
+  chatmodo:
+      description: Envoie un message inter-serveur aux modérateurs du serveur
+      aliases: [chatmodo, cm]
+      permission: StaffChat.ModoStaff.Messenger
