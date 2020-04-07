@@ -27,7 +27,8 @@ public class AdminChatCommand implements CommandExecutor {
                 if(p.hasPermission("StaffChat.AdminStaff.Messenger")) {
                     for (Player p1 : Bukkit.getOnlinePlayers()) {
                         if (p1.hasPermission("StaffChat.AdminStaff.Messenger")) {
-                            p1.sendMessage(ChatColor.RED + "[AdminChat] " + ChatColor.AQUA + "("+Bukkit.getServer().getServerName()+")" + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
+                            // p1.sendMessage(ChatColor.RED + "[AdminChat] " + ChatColor.AQUA + "("+Bukkit.getServer().getServerName()+")" + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
+                            p1.sendMessage(ChatColor.RED + "[AdminChat] " + ChatColor.AQUA + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
                         }
                     }
                     new CustomMessageSender("ALL", "AdminStaffMessage", new String[]{Bukkit.getServer().getServerName(), p.getName(), msg});
@@ -44,7 +45,7 @@ public class AdminChatCommand implements CommandExecutor {
         }
         else
         {
-            sender.sendMessage(ChatColor.RED + "Vous devez spécifier un message: /staffchat <message>");
+            sender.sendMessage(ChatColor.RED + "Vous devez spécifier un message: /ca <message>");
         }
         return false;
     }

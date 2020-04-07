@@ -28,7 +28,8 @@ public class ModoChatCommand implements CommandExecutor {
                 if(p.hasPermission("StaffChat.ModoStaff.Messenger")) {
                     for (Player p1 : Bukkit.getOnlinePlayers()) {
                         if (p1.hasPermission("StaffChat.ModoStaff.Messenger")) {
-                            p1.sendMessage(ChatColor.RED + "[ModoChat] " + ChatColor.AQUA + "("+ StaffChatPlugin.getPlugin(StaffChatPlugin.class).getServer().getServerName()+")" + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
+                            // p1.sendMessage(ChatColor.RED + "[ModoChat] " + ChatColor.AQUA + "("+ StaffChatPlugin.getPlugin(StaffChatPlugin.class).getServer().getServerName()+")" + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
+                            p1.sendMessage(ChatColor.RED + "[ModoChat] " + ChatColor.AQUA + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
                         }
                     }
                     new CustomMessageSender("ALL", "ModoStaffMessage", new String[]{Bukkit.getServer().getServerName(), p.getName(), msg});
@@ -45,7 +46,7 @@ public class ModoChatCommand implements CommandExecutor {
         }
         else
         {
-            sender.sendMessage(ChatColor.RED + "Vous devez spécifier un message: /staffchat <message>");
+            sender.sendMessage(ChatColor.RED + "Vous devez spécifier un message: /ca <message>");
         }
         return false;
     }

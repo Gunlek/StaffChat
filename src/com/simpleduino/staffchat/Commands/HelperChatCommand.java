@@ -27,7 +27,8 @@ public class HelperChatCommand implements CommandExecutor {
                 if(p.hasPermission("StaffChat.HelperStaff.Messenger")) {
                     for (Player p1 : Bukkit.getOnlinePlayers()) {
                         if (p1.hasPermission("StaffChat.HelperStaff.Messenger")) {
-                            p1.sendMessage(ChatColor.RED + "[HelperChat] " + ChatColor.AQUA + "("+Bukkit.getServer().getServerName()+")" + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
+                            // p1.sendMessage(ChatColor.RED + "[HelperChat] " + ChatColor.AQUA + "("+Bukkit.getServer().getServerName()+")" + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
+                            p1.sendMessage(ChatColor.RED + "[HelperChat] " + ChatColor.AQUA  + p.getName()+ChatColor.RESET+": "+msg.replace("&","§"));
                         }
                     }
                     new CustomMessageSender("ALL", "HelperChatMessage", new String[]{Bukkit.getServerName(), p.getName(), msg});
@@ -44,7 +45,7 @@ public class HelperChatCommand implements CommandExecutor {
         }
         else
         {
-            sender.sendMessage(ChatColor.RED + "Vous devez spécifier un message: /staffchat <message>");
+            sender.sendMessage(ChatColor.RED + "Vous devez spécifier un message: /ca <message>");
         }
         return false;
     }
